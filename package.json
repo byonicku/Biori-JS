@@ -1,0 +1,21 @@
+{
+  "name": "biori-js",
+  "version": "1.0.0",
+  "description": "Project Discord Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Byonick",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  },
+  "dependencies": {
+    "anime-images-api": "^2.0.0",
+    "discord.js": "^14.12.1",
+    "pokeapi-js-wrapper": "^1.2.3",
+    "pokedex-promise-v2": "^4.1.1",
+    "sqlite3": "^5.1.6"
+  }
+}
