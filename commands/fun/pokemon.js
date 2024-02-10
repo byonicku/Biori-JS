@@ -37,8 +37,6 @@ module.exports = {
 			const row = new ActionRowBuilder()
 				.addComponents(shinyButton);
 
-			console.log(response.sprites);
-
 			const embed = new EmbedBuilder()
 				.setTitle(`${capitalize(response.name)}`)
 				.setThumbnail(response.sprites.front_default)
