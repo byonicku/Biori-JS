@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "anime-images-api": "^2.0.0",
+    "axios": "^1.6.7",
     "discord.js": "^14.12.1",
     "pokeapi-js-wrapper": "^1.2.3",
     "pokedex-promise-v2": "^4.1.1",

@@ -1,6 +1,6 @@
+const { default: axios } = require('axios');
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const animeAPI = require('anime-images-api');
-const images = new animeAPI();
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -29,13 +29,16 @@ module.exports = {
 		}
 
 		try {
-			const img = await images.sfw.kiss();
+			const img = await axios.get(
+				'https://api.waifu.pics/sfw/kiss',
+				{},
+			).then((res) => res.data);
 			const title = user.equals(interaction.user) ?
 				`${interaction.member.displayName} kissed themselves? WTF O_O` :
 				`${interaction.member.displayName} kissed ${user.displayName}!`;
 			const embed = new EmbedBuilder()
 				.setColor(interaction.member.displayHexColor)
-				.setImage(img.image)
+				.setImage(img.url)
 				.setAuthor(
 					{
 						name: title,

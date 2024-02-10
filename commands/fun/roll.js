@@ -28,7 +28,7 @@ module.exports = {
 		for (let i = 0; i < 5; i++) {
 			number = Math.floor((Math.random() * (max - min + 1)) + min);
 			await interaction.editReply(`Rolling... ${number}`);
-			await wait(500);
+			await wait(i * 40);
 		}
 
 		await interaction.editReply(`You rolled a **${number}**!`);
