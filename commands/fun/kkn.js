@@ -5,8 +5,14 @@ module.exports = {
     .setName("kkn")
     .setDescription("Get timer before KKN ends!"),
   async execute(interaction) {
-    const date = new Date();
-    const end = new Date("2024-08-02T00:00:00Z");
+    const currentDate = new Date();
+    const date = new Date(
+      currentDate.getTime() +
+        currentDate.getTimezoneOffset() * 60000 +
+        8 * 60 * 60000
+    );
+
+    const end = new Date("2024-08-02T00:00:00+08:00");
 
     if (date > end) {
       return interaction.reply({
@@ -23,7 +29,7 @@ module.exports = {
     const remainingSeconds = seconds % 60;
     const remainingMinutes = minutes % 60;
     const remainingHours = hours % 24;
-    const remainingDays = days % 7;
+    const remainingDays = days;
 
     const embed = new EmbedBuilder()
       .setTitle("KKN Countdown")
