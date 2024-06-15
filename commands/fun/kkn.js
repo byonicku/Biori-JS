@@ -36,14 +36,12 @@ module.exports = {
       .setDescription(
         `KKN will end in ${remainingDays} days, ${remainingHours} hours, ${remainingMinutes} minutes, and ${remainingSeconds} seconds!`
       )
-      .setColor(0x00ff00)
+      .setColor(interaction.member.displayHexColor)
       .setFooter({
         text: `Requested by ${interaction.member.displayName}`,
         iconURL: interaction.user.displayAvatarURL(),
       });
 
-    await interaction
-      .reply({ embeds: [embed] })
-      .then(() => setTimeout(() => interaction.deleteReply(), 10000));
+    await interaction.reply({ embeds: [embed] });
   },
 };
