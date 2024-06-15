@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -25,12 +25,16 @@ module.exports = {
     const remainingHours = hours % 24;
     const remainingDays = days % 7;
 
-    const embed = {
-      title: "KKN Countdown",
-      description: `KKN will end in ${remainingDays} days, ${remainingHours} hours, ${remainingMinutes} minutes, and ${remainingSeconds} seconds!`,
-      color: 0x00ff00,
-    };
+    const embed = new EmbedBuilder()
+      .setTitle("KKN Countdown")
+      .setDescription(
+        `KKN will end in ${remainingDays} days, ${remainingHours} hours, ${remainingMinutes} minutes, and ${remainingSeconds} seconds!`
+      )
+      .setColor(0x00ff00)
+      .setFooter("KKN ends on August 2, 2024");
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction
+      .reply({ embeds: [embed] })
+      .then(() => setTimeout(() => interaction.deleteReply(), 10000));
   },
 };
