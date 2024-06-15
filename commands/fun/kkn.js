@@ -5,22 +5,24 @@ module.exports = {
     .setName("kkn")
     .setDescription("Get timer before KKN ends!"),
   async execute(interaction) {
+    // Current date in UTC
     const currentDate = new Date();
-    const date = new Date(
-      currentDate.getTime() +
-        currentDate.getTimezoneOffset() * 60000 +
-        8 * 60 * 60000
-    );
 
-    const end = new Date("2024-08-02T00:00:00+08:00");
+    // KKN end date in WIB (GMT+8)
+    const endDate = new Date("2024-08-02T00:00:00+08:00");
 
-    if (date > end) {
+    // Convert current date to UTC for accurate comparison
+    const utcCurrentDate = new Date(currentDate.toISOString());
+
+    // Calculate the difference between the end date and the current date in milliseconds
+    const diff = endDate.getTime() - utcCurrentDate.getTime();
+
+    if (diff < 0) {
       return interaction.reply({
         content: "KKN has ended!",
       });
     }
 
-    const diff = end - date;
     const seconds = Math.floor(diff / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
