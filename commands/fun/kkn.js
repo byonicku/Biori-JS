@@ -9,7 +9,7 @@ module.exports = {
     const currentDate = new Date();
 
     // KKN end date in WIB (GMT+8)
-    const endDate = new Date("2024-08-02T00:00:00+08:00");
+    const endDate = new Date("2024-08-02T00:00:00+07:00");
 
     // Convert current date to UTC for accurate comparison
     const utcCurrentDate = new Date(currentDate.toISOString());
