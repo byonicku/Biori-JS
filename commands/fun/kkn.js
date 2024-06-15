@@ -31,7 +31,10 @@ module.exports = {
         `KKN will end in ${remainingDays} days, ${remainingHours} hours, ${remainingMinutes} minutes, and ${remainingSeconds} seconds!`
       )
       .setColor(0x00ff00)
-      .setFooter("KKN ends on August 2, 2024");
+      .setFooter({
+        text: `Requested by ${interaction.member.displayName}`,
+        iconURL: interaction.user.displayAvatarURL(),
+      });
 
     await interaction
       .reply({ embeds: [embed] })
