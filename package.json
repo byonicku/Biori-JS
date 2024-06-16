@@ -15,6 +15,7 @@
     "axios": "^1.6.7",
     "discord.js": "^14.12.1",
     "dotenv": "^16.4.5",
+    "pagination.djs": "^4.0.15",
     "sqlite3": "^5.1.6"
   }
 }
